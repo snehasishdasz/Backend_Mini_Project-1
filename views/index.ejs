@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-color: #e6ecf7;
+            opacity: 0.8;
+            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e6ecf7 29px),
+                              repeating-linear-gradient(#0000ff55, #0000ff);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 bg-gray-900 bg-opacity-90 rounded-lg shadow-2xl backdrop-blur-lg">
+        <h2 class="mb-6 text-2xl font-bold text-center text-blue-400">Sign Up</h2>
+        <form action="/register" method="POST" class="space-y-4">
+            <input type="text" name="name" placeholder="Name" required
+                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" name="username" placeholder="Username" required
+                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="email" name="email" placeholder="Email" required
+                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="number" name="age" placeholder="Age" required
+                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="password" name="password" placeholder="Password" required
+                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit"
+                class="w-full p-3 font-bold text-white bg-blue-600 rounded hover:bg-blue-700">Sign Up</button>
+        </form>
+        <p class="text-center text-gray-400 mt-4">Already have an account? <a href="/login" class="text-blue-400 hover:underline">Login</a></p>
+    </div>
+</body>
+</html>
