@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Login</title>
-    <style>
-        body {
-            background-color: #000000;
-            opacity: 0.8;
-            background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 24px),
-                              repeating-linear-gradient(#25ab2255, #25ab22);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login</title>
+  <style>
+    html {
+      --s: 120px;
+      --c1: #4f5f52;
+      --c2: #000000;
+      --_g: #0000 90deg, var(--c1) 0;
+      background:
+        conic-gradient(from 90deg at 2px 2px, var(--_g)),
+        conic-gradient(from 90deg at 1px 1px, var(--_g)),
+        var(--c2);
+      background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+      z-index: -1;
+    }
+  </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
-    <div class="w-full max-w-md p-8 bg-gray-900 bg-opacity-90 rounded-lg shadow-2xl backdrop-blur-lg">
-        <h2 class="mb-6 text-2xl font-bold text-center text-green-400">Login</h2>
-        <form action="/login" method="POST" class="space-y-4">
-            <input type="email" name="email" placeholder="Email" required
-                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500">
-            <input type="password" name="password" placeholder="Password" required
-                class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500">
-            <button type="submit"
-                class="w-full p-3 font-bold text-white bg-green-600 rounded hover:bg-green-700">Login</button>
-        </form>
-        <p class="text-center text-gray-400 mt-4">Don't have an account? <a href="/signup" class="text-green-400 hover:underline">Sign up</a></p>
-    </div>
+<body class="flex items-center justify-center min-h-screen text-white">
+  <div class="w-full max-w-md p-8 bg-gray-900 bg-opacity-90 rounded-lg shadow-2xl backdrop-blur-lg">
+    <h2 class="mb-6 text-2xl font-bold text-center text-green-400">Login</h2>
+    <form action="/login" method="POST" class="space-y-4">
+      <input type="email" name="email" placeholder="Email" required
+        class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500">
+      <input type="password" name="password" placeholder="Password" required
+        class="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500">
+      <button type="submit"
+        class="w-full p-3 font-bold text-white bg-green-600 rounded hover:bg-green-700">Login</button>
+    </form>
+    <p class="text-center text-gray-400 mt-4">Don't have an account?
+      <a href="/signup" class="text-green-400 hover:underline">Sign up</a>
+    </p>
+  </div>
 </body>
 </html>
