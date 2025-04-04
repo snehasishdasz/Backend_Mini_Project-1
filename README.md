@@ -1,9 +1,10 @@
 # Backend Mini Project - 1
 
-## 🛠 Project Overview
-This project is a **User Authentication System** built using **Node.js, Express, MongoDB, and EJS**. It allows users to register, log in, and access a profile page with authentication managed via JSON Web Tokens (JWT).
+## 💠 Project Overview
+This project is a **User Authentication System** built using **Node.js, Express, MongoDB, and EJS**. It allows users to register, log in, and access a profile page with authentication managed via JSON Web Tokens (JWT).  
+🔗 Users can also **create** and **edit posts** from their profile.
 
-## 🚀 Features
+## ✨ Features
 - **User Registration** (Username, Email, Password, Age, Name)
 - **User Login** (Email & Password Authentication)
 - **JWT-Based Authentication** for Secure Login
@@ -11,13 +12,17 @@ This project is a **User Authentication System** built using **Node.js, Express,
 - **Protected Profile Page** (Only accessible to logged-in users)
 - **Password Hashing** using `bcrypt`
 - **Logout Functionality**
+- **Create & Edit Posts** ✍️
 
 ## 🖼 Screenshots
 ### 🔹 Register Page
-![Register](https://github.com/user-attachments/assets/5171e5fe-f5a6-4338-a55d-6fb1a8537215)
+![Register](https://github.com/user-attachments/assets/2ab41c01-6f51-43ad-9df6-fca60305e9bb)
 
 ### 🔹 Login Page
-![Login](https://github.com/user-attachments/assets/e4ac33ba-1788-437b-9779-7416f2b39d0d)
+![Login](https://github.com/user-attachments/assets/86cda256-9683-46a4-a594-247991bde137)
+
+### 🔹 Profile Page
+![Profile](https://github.com/user-attachments/assets/101e5394-0ed8-443f-94b3-df31b8d9b333)
 
 ## 🏗 Tech Stack
 - **Backend:** Node.js, Express.js
@@ -27,16 +32,18 @@ This project is a **User Authentication System** built using **Node.js, Express,
 - **Security:** bcrypt for password hashing
 - **Middleware:** cookie-parser, express.json, express.urlencoded
 
-## 🔧 Installation & Setup
+## ⚖ Installation & Setup
 1. **Clone the Repository**
 ```bash
 git clone https://github.com/your-username/Backend_Mini_Project-1.git
 cd Backend_Mini_Project-1
 ```
+
 2. **Install Dependencies**
 ```bash
 npm install
 ```
+
 3. **Setup Environment Variables**
 Create a `.env` file and add:
 ```
@@ -44,6 +51,7 @@ PORT=3000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
 ```
+
 4. **Run the Server**
 ```bash
 node app.js
@@ -60,6 +68,8 @@ The server will start at `http://localhost:3000/`
 
 ### **Protected Routes:**
 - `GET /profile` → Show Profile Page (Requires Authentication)
+- `POST /post` → Create a New Post
+- `POST /edit/:id` → Edit an Existing Post
 - `GET /logout` → Logout User & Clear Cookies
 
 ## 🏆 Contributing
