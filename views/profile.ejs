@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Add Font Awesome CDN for pencil icon -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     html {
       --s: 120px;
@@ -30,7 +32,15 @@
 
   <!-- Navbar -->
   <div class="w-full bg-zinc-900 px-6 py-4 flex justify-between items-center shadow-md">
-    <h1 class="text-xl font-bold">Hello, <%= user.name %>👋</h1>
+    <div class="flex items-center space-x-4">
+      <h1 class="text-xl font-bold">Hello, <%= user.name %>👋</h1>
+      <!-- Profile Picture in Navbar -->
+      <img src="/images/uploads/<%= user.profilepic %>" alt="Profile Picture" class="w-12 h-12 rounded-full border-2 border-yellow-500 object-cover">
+      <!-- Pencil icon as Edit link -->
+      <a href="/profile/upload" class="text-yellow-500 hover:underline">
+        <i class="fas fa-pencil-alt"></i>
+      </a>
+    </div>
     <a href="/logout" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md">Logout</a>
   </div>
 
@@ -48,7 +58,7 @@
   </div>
 
   <!-- Posts Section -->
-<div class="px-6 pb-10">
+  <div class="px-6 pb-10">
     <h3 class="text-2xl font-semibold text-center mb-6">Your Posts</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <% user.posts.reverse().forEach(function(post) { %>
@@ -56,14 +66,20 @@
           <h4 class="text-yellow-400 font-bold">@<%= user.username  %> </h4>
           <p class="mt-2 text-sm text-gray-300"><%= post.content %></p>
           <div class="mt-4 flex justify-between">
-            <a href="#" class="text-blue-400 hover:underline">Like</a>
-            <a href="#" class="text-green-400 hover:underline">Edit</a>
+            <form action="/like/<%= post._id %>" method="POST">
+              <% 
+                let likedByUser = post.likes.some(like => like.toString() === user._id.toString());
+              %>
+              <button type="submit" class="text-blue-400 hover:underline">
+                <%= likedByUser ? "Unlike" : "Like" %> (<%= post.likes.length %>)
+              </button>
+            </form>
+            <a href="/edit/<%= post._id %>" class="text-green-400 hover:underline">Edit</a>
           </div>
         </div>
       <% }) %>
     </div>
   </div>
-  
 
 </body>
 </html>

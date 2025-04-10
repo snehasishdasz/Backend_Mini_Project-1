@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload File</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --s: 100px;
+      --c1: #0f172a; /* dark blue */
+      --c2: #1e293b; /* slate */
+      --_g: var(--c1) 0 25%, var(--c2) 0 50%;
+    }
+
+    body {
+      background:
+        conic-gradient(from 90deg at 2px 2px, var(--_g)),
+        conic-gradient(from 90deg at 1px 1px, var(--_g)),
+        var(--c2);
+      background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+      min-height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* dim the background */
+      z-index: -1;
+    }
+
+    .backdrop {
+      backdrop-filter: blur(5px);
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="max-w-md w-full p-6 rounded-2xl shadow-xl backdrop">
+    <h2 class="text-3xl font-bold text-center text-purple-400 mb-6">Upload Profile Picture</h2>
+
+    <form action="/profile/upload" method="POST" enctype="multipart/form-data" class="space-y-4">
+      <div>
+        <label class="block text-gray-300 mb-2 text-sm font-medium" for="myfile">Choose File</label>
+        <input 
+          type="file" 
+          name="image" 
+          id="myfile" 
+          required
+          class="w-full px-4 py-2 rounded-lg bg-gray-800 text-white border border-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-500 file:text-white hover:file:bg-purple-600"
+        />
+      </div>
+
+      <div class="text-center">
+        <button 
+          type="submit" 
+          class="w-full px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-full font-semibold transition"
+        >
+          Upload
+        </button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
