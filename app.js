@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const crypto = require('crypto');
@@ -139,7 +139,7 @@ app.post("/edit/:postId", isLoggedIn, async (req, res) => {
     res.redirect("/profile");
 });
 
-app.get("/profile/upload",(req,res)=>{
+app.get("/profile/upload",isLoggedIn,(req,res)=>{
     res.render("profileUpload");
 })
 
