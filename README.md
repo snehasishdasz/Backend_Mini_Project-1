@@ -2,7 +2,7 @@
 
 ## 💠 Project Overview
 This project is a **User Authentication System** built using **Node.js, Express, MongoDB, and EJS**. It allows users to register, log in, and access a profile page with authentication managed via JSON Web Tokens (JWT).  
-🔗 Users can also **create** and **edit posts** from their profile.
+🔗 Users can also **create**, **edit posts**, and **set profile pictures** through Multer from their profile.
 
 ## ✨ Features
 - **User Registration** (Username, Email, Password, Age, Name)
@@ -13,6 +13,7 @@ This project is a **User Authentication System** built using **Node.js, Express,
 - **Password Hashing** using `bcrypt`
 - **Logout Functionality**
 - **Create & Edit Posts** ✍️
+- **Upload Profile Picture** using `multer`
 
 ## 🖼 Screenshots
 ### 🔹 Register Page
@@ -22,7 +23,12 @@ This project is a **User Authentication System** built using **Node.js, Express,
 ![Login](https://github.com/user-attachments/assets/86cda256-9683-46a4-a594-247991bde137)
 
 ### 🔹 Profile Page
-![Profile](https://github.com/user-attachments/assets/101e5394-0ed8-443f-94b3-df31b8d9b333)
+![Profile](https://github.com/user-attachments/assets/d10ed891-2d2f-4da6-92f1-65c531db1147)
+
+### 🔹 Upload Page
+![Upload](https://github.com/user-attachments/assets/358d2e96-95a7-45c3-b995-1e17f37753ec)
+
+
 
 ## 🏗 Tech Stack
 - **Backend:** Node.js, Express.js
@@ -30,7 +36,7 @@ This project is a **User Authentication System** built using **Node.js, Express,
 - **Templating Engine:** EJS
 - **Authentication:** JWT (JSON Web Token)
 - **Security:** bcrypt for password hashing
-- **Middleware:** cookie-parser, express.json, express.urlencoded
+- **Middleware:** cookie-parser, express.json, express.urlencoded, multer
 
 ## ⚖ Installation & Setup
 1. **Clone the Repository**
@@ -70,6 +76,7 @@ The server will start at `http://localhost:3000/`
 - `GET /profile` → Show Profile Page (Requires Authentication)
 - `POST /post` → Create a New Post
 - `POST /edit/:id` → Edit an Existing Post
+- `POST /upload` → Upload Profile Picture (Requires Authentication)
 - `GET /logout` → Logout User & Clear Cookies
 
 ## 🏆 Contributing
